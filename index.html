@@ -14,9 +14,45 @@
     min-height: 14px;
     
 }
+.turnDeviceNotification {
+  position:fixed;
+  top: 0;
+  left:0;
+  height:100%;
+  width:100%;
+  display: none;
+}
   </style>
+  
+  <script>
+    jQuery(window).bind('orientationchange', function(e) {
+ switch ( window.orientation ) {
+  case 0:
+    $('.turnDeviceNotification').css('display', 'none');
+    // The device is in portrait mode now
+  break;
+
+  case 180:
+    $('.turnDeviceNotification').css('display', 'none');
+    // The device is in portrait mode now
+  break;
+
+  case 90:
+    // The device is in landscape now
+    $('.turnDeviceNotification').css('display', 'block');
+  break;
+
+  case -90:
+    // The device is in landscape now
+    $('.turnDeviceNotification').css('display', 'block');
+  break;
+ }
+});
+  </script>
 </head>
   <body style='margin : 0px; overflow: hidden;'>
+    <div class="turnDeviceNotification"><p>Vira o bagui!</p></div>
+    
     <div style='position: absolute; top: 10px; width:100%; text-align: right; z-index: 1;'>
     <img src="logo1.png" id="logo">
     </div>
