@@ -14,74 +14,50 @@
     min-height: 14px;
     
 }
-.turnDeviceNotification {
-  position:fixed;
-  top: 0;
-  left:0;
-  height:100%;
-  width:100%;
-  display: none;
-  background-color: #FFF;
-  text-align: center;
+@media only screen and (orientation:landscape){
+  h1{
+    color: red;
+    display: block;
+    position: fixed;
+  }
 }
+@media only screen and (orientation:portrait){
+  h1{
+    color: blue;
+    display: none;
+    }
+}
+
   </style>
   
-  <script>
-    jQuery(window).bind('orientationchange', function(e)) {
- switch ( window.orientation ) {
-  case 0:
-    $('.turnDeviceNotification').css('display', 'none');
-    // The device is in portrait mode now
-  break;
-
-  case 180:
-    $('.turnDeviceNotification').css('display', 'none');
-    // The device is in portrait mode now
-  break;
-
-  case 90:
-    // The device is in landscape now
-    $('.turnDeviceNotification').css('display', 'block');
-  break;
-
-  case -90:
-    // The device is in landscape now
-    $('.turnDeviceNotification').css('display', 'block');
-  break;
- }
-});
-  </script>
 </head>
   <body style='margin : 0px; overflow: hidden;'>
-    <div class="turnDeviceNotification"><p>Vira o bagui!</p></div>
+    <div class="turnDeviceNotification"><h1>Vira o bagui!</h1></div>
     
     <div style='position: absolute; top: 10px; width:100%; text-align: right; z-index: 1;'>
     <img src="logo1.png" id="logo">
     </div>
+    
     <a-scene embedded arjs='trackingMethod: best; debugUIEnabled:false; detectionMode: mono_and_matrix; matrixCodeType: 3x3;'>
       
-      <a-marker preset="hiro">
-        
-          
-          
-      </a-marker>
+      <a-marker preset="hiro"><!-- conflitando com o 0 --></a-marker>
       
       <a-marker preset='kanji'>
         <a-entity obj-model="obj: url(models/saturn.obj); mtl: url(models/saturn.mtl)" scale="0.005 0.005 0.005"
             animation="property: rotation; dur: 10000;from: 0 180 0; to: 0 180 360; loop: true" position='0.5 1 0'>
-          </a-entity>
+        </a-entity>
       </a-marker>
       
       <a-marker type='barcode' value='0'>
         <a-entity obj-model="obj: url(models/uranus.obj); mtl: url(models/uranus.mtl)" scale="0.005 0.005 0.005"
             animation="property: rotation; dur: 10000;from: 0 0 90; to: 0 360 90; loop: true" position='0.5 1 0'>
-          </a-entity>
+        </a-entity>
       </a-marker>
       
       <a-marker type='barcode' value='3'>
         <a-entity obj-model="obj: url(models/earth_ball.obj); mtl: url(models/earth_ball.mtl)" scale="0.02 0.02 0.02"
             animation="property: rotation; dur: 10000;from: 270 0 0; to: 270 360 0; loop: true">
-          </a-entity>
+        </a-entity>
       </a-marker>
       
       <a-marker type='barcode' value='5'>
@@ -91,11 +67,13 @@
       </a-marker>
       
       <a-marker type='barcode' value='6'>
-        <a-box position='0 0.5 0' material='opacity: 0.5;'></a-box>
+        <a-sphere position='0 0.5 0' src="models/sun.jpg" radius="2" animation="property: rotation; dur: 30000;from: 90 0 0; to: 90 360 0; loop: true"></a-sphere>
       </a-marker>
       
       <a-marker type='barcode' value='20'>
-        <a-box position='0 0.5 0' material='opacity: 0.5;'></a-box>
+        <a-entity obj-model="obj: url(models/saturnV.obj); mtl: url(models/saturnV.mtl)" scale="2 2 2"
+            animation="property: rotation; dur: 10000;from: 0 0 0; to: 0 0 0; loop: true" position='0 1 0'>
+        </a-entity>
       </a-marker>
       
       <a-entity camera></a-entity>
