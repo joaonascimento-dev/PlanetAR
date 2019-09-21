@@ -14,26 +14,28 @@
     min-height: 14px;
     
 }
-@media only screen and (orientation:landscape){
-  h1{
-    color: red;
-    display: block;
-    position: fixed;
-  }
-}
-@media only screen and (orientation:portrait){
-  h1{
-    color: blue;
-    display: none;
-    }
+/* style the elements with CSS */
+#pleaserotate-graphic{
+    fill: #fff;
 }
 
-  </style>
+#pleaserotate-backdrop {
+    color: #fff;
+    background-color: #000;
+}
+</style>
+<script>
+    /* you can pass in options here */
+    PleaseRotateOptions = {
+        forcePortrait: true // if you would prefer to force portrait mode
+    };
+</script>
   
 </head>
-  <body style='margin : 0px; overflow: hidden;'>
-    <div class="turnDeviceNotification"><h1>Vira o bagui!</h1></div>
-    
+<body style='margin : 0px; overflow: hidden;'>
+
+  <script src="pleaserotate.js"></script>
+
     <div style='position: absolute; top: 10px; width:100%; text-align: right; z-index: 1;'>
     <img src="logo1.png" id="logo">
     </div>
@@ -78,5 +80,5 @@
       
       <a-entity camera></a-entity>
     </a-scene>
-  </body>
+</body>
 </html>
