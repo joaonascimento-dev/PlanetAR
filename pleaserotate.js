@@ -9,9 +9,9 @@
         onHide: function(){},
         onShow: function(){},
         forcePortrait: false,
-        message: "Please Rotate Your Device",
-        subMessage: "(or click to continue)",
-        allowClickBypass: true,
+        message: "Por favor rotacione seu dispositivo",
+        subMessage: "",
+        allowClickBypass: false,
         onlyMobile: true,
         zIndex: 1000,
         iconNode: null
